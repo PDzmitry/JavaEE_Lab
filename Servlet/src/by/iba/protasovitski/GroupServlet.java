@@ -9,16 +9,15 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.html.HTMLDocument;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/GroupServlet", name = "GroupServlet")
 public class GroupServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private String getLastTimeEnter(HttpServletRequest request) {
-        String time = null;
-        String cookieName = request.getParameter("name");
+    private String getCookieValue(HttpServletRequest request,String key) {
+        String value = null;
+        String cookieName = request.getParameter(key);
         if (cookieName != null) {
             Cookie[] cookies = request.getCookies();
             if (cookies != null) {
@@ -29,7 +28,7 @@ public class GroupServlet extends HttpServlet {
                 }
             }
         }
-        return time;
+        return value;
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -52,7 +51,7 @@ public class GroupServlet extends HttpServlet {
             PersonDao.update(person);
         }
 
-        request.setAttribute("time", getLastTimeEnter(request));
+        request.setAttribute("time", getCookieValue(request,"name"));
         request.setAttribute("group", PersonDao.findAll());
         request.getRequestDispatcher("/WEB-INF/views/welcome.jsp")
                 .forward(request, response);

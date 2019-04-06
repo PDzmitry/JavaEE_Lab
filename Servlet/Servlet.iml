@@ -19,10 +19,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0" level="application_server_libraries" />
     <orderEntry type="library" name="jstl-1.2" level="project" />
     <orderEntry type="library" name="jquery-3.3.1" level="project" />
     <orderEntry type="library" name="bootstrap-4.3.1" level="project" />
+    <orderEntry type="library" name="javaee-api-6.0" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.15" level="project" />
   </component>
 </module>

@@ -21,6 +21,8 @@ public class RegisterServlet extends HttpServlet {
         if (!daoUser.hasUser(name)) {
             if (("".equals(name)) || ("".equals(password))) {
                 request.setAttribute("error", "Заполните все поля");
+                request.getRequestDispatcher("/WEB-INF/views/registry.jsp")
+                        .forward(request, response);
             } else {
                 if (name != null && password != null)
                     if (daoUser.create(new User(name, daoUser.crypt(password)))) {
