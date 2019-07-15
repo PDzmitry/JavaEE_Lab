@@ -1,0 +1,75 @@
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css_style/style.css}"/>
+</head>
+<body>
+<h1>Edit User</h1>
+<form th:action="@{/editUser}" th:object="${editUserDto}" method="post">
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+            Please correct the information.
+        </span>
+    </div>
+    <div>
+        Login:
+        <input type="text" th:field="*{login}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('login')}"
+              th:errors="*{login}">
+        </span>
+        <br/>
+        Password:
+        <input type="password" th:field="*{password}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('password')}"
+              th:errors="*{password}">
+        </span>
+        <br/>
+    </div>
+    <div th:object="${userInfoDto}">
+        Name:
+        <input type="text" th:field="*{name}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{joined}">
+        </span>
+        <br/>
+        Bio:
+        <input type="text" th:field="*{bio}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('bio')}"
+              th:errors="*{bio}">
+        </span>
+        <br/>
+        Url:
+        <input type="text" th:field="*{url}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('url')}"
+              th:errors="*{url}">
+        </span>
+        <br/>
+        Company:
+        <input type="text" th:field="*{company}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('company')}"
+              th:errors="*{company}">
+        </span>
+        <br/>
+        Location:
+        <input type="text" th:field="*{location}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('location')}"
+              th:errors="*{location}">
+        </span>
+        <br/>
+    </div>
+    <input type="submit" value="Create"/>
+</form>
+<br/>
+<div th:if="${errorMessage}" th:utext="${errorMessage}"
+     style="color: red; font-style: italic;">
+</div>
+</body>
+</html>

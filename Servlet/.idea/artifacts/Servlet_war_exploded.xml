@@ -1,13 +1,31 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Servlet:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/Servlet_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/Servlet</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>Servlet</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
-      <element id="javaee-facet-resources" facet="Servlet/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Servlet" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.15" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.webjars.bower:jquery:3.3.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.9" />
+        </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/Servlet/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Servlet/web/Web" />
     </root>
   </artifact>
 </component>
