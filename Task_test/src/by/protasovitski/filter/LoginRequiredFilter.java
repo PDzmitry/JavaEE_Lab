@@ -27,7 +27,7 @@ public class LoginRequiredFilter implements Filter {
         if (!command.equals(WELCOME)) {
             chain.doFilter(req, resp);
         } else {
-            if (request.getSession().getAttribute(SessionAttribute.USER_ID)!=null){
+            if (request.getSession().getAttribute(SessionAttribute.USER)!=null){
                 chain.doFilter(req,resp);
             }else{
                 request.setAttribute(ERROR_MESSAGE,ERROR_TEXT);

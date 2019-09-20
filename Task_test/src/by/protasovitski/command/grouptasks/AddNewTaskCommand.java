@@ -12,6 +12,7 @@ import by.protasovitski.service.UserService;
 import by.protasovitski.util.pages.Page;
 import org.hibernate.internal.util.StringHelper;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -27,7 +28,7 @@ import static java.util.Optional.of;
 
 //import org.apache.commons.lang3.StringUtils;
 
-@SessionScoped
+@RequestScoped
 @Type(CommandType.ADD_NEW_TASK)
 public class AddNewTaskCommand implements Command {
 

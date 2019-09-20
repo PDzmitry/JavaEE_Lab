@@ -6,9 +6,11 @@ public enum Page {
     WELCOME_PAGE("/WEB-INF/views/listTask.jsp"),
     ERROR_PAGE("/WEB-INF/views/errorPage.jsp"),
     NEW_TASK_PAGE("/WEB-INF/views/addTask.jsp"),
-//    USER_PAGE("/WEB-INF/views/users.jsp"),
     LIST_USERS_PAGE("/WEB-INF/views/users.jsp"),
-    EDIT_USER_PAGE("/WEB-INF/views/editUser.jsp");
+    EDIT_USER_PAGE("/WEB-INF/views/editUser.jsp"),
+    VIEW_LOG_PAGE("/WEB-INF/views/viewlog.jsp"),
+    ADD_LOG_PAGE("/WEB-INF/views/addLog.jsp");
+
 
     private final String value;
 

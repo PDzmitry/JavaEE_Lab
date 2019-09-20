@@ -56,6 +56,10 @@ public class CommandFactory implements Serializable {
     @Type(CommandType.LIST_USERS)
     private Command listUsersCommand;
 
+    @Inject
+    @Type(CommandType.VIEW_LOG)
+    private Command viewLogCommand;
+
 
     public Command create(String command) {
         command = command.toUpperCase();
@@ -108,6 +112,10 @@ public class CommandFactory implements Serializable {
             }
             case LIST_USERS: {
                 resultCommand = listUsersCommand;
+                break;
+            }
+            case VIEW_LOG:{
+                resultCommand = viewLogCommand;
                 break;
             }
             default: {

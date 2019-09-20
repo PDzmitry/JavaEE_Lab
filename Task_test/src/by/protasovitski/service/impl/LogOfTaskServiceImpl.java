@@ -1,8 +1,8 @@
 package by.protasovitski.service.impl;
 
-import by.protasovitski.entity.Task;
-import by.protasovitski.repository.TaskRepository;
-import by.protasovitski.service.TaskService;
+import by.protasovitski.entity.LogOfTasks;
+import by.protasovitski.repository.LogOfTaskRepository;
+import by.protasovitski.service.LogOfTaskService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -10,17 +10,18 @@ import javax.inject.Named;
 import java.util.List;
 import java.util.Optional;
 
+
 @Named
 @SessionScoped
-public class TaskServiceImpl implements TaskService {
-    @Inject
-    private TaskRepository taskRepository;
+public class LogOfTaskServiceImpl implements LogOfTaskService {
 
+    @Inject
+    private LogOfTaskRepository logOfTaskRepository;
 
     @Override
-    public List<Task> findAllByUserId(Long userId) {
+    public List<LogOfTasks> findAllByTaskId(Long taskId) {
         try{
-            return taskRepository.findAllByUserId(userId);
+            return logOfTaskRepository.findAllByTaskId(taskId);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -28,9 +29,9 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Optional<Task> save(Task task) {
+    public Optional<LogOfTasks> save(LogOfTasks log) {
         try {
-            return Optional.of(taskRepository.save(task));
+            return Optional.of(logOfTaskRepository.save(log));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -38,9 +39,9 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Optional<Task> findById(Long id) {
+    public Optional<LogOfTasks> findById(Long id) {
         try{
-            return taskRepository.findById(id);
+            return logOfTaskRepository.findById(id);
         }catch (Exception e){
             e.printStackTrace();
         }

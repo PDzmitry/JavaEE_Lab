@@ -10,6 +10,7 @@ import by.protasovitski.exception.ServiceException;
 import by.protasovitski.service.UserService;
 import by.protasovitski.util.pages.Page;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ import java.util.List;
 
 import static by.protasovitski.command.groupusers.constant.GroupConstant.LISTGROUP;
 
-@SessionScoped
+@RequestScoped
 @Type(CommandType.LIST_USERS)
 public class ListUsersCommand implements Command {
     @Inject

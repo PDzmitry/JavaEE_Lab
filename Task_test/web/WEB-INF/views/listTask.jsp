@@ -14,10 +14,10 @@
 <jsp:include page="header.jsp"/>
 <section>
     <div class="container">
-      <%--  <div class="row">
-            <h1 class="h3 mb-3 font-weight-normal">Добро пожаловать, ${user_id} последнее время входа ${time}</h1>
-
-        </div>--%>
+        <div class="row">
+            <c:set var="user" value="${user}"></c:set>
+            <h1 class="h4 col-lg-12 font-weight-normal">Добро пожаловать, ${user.name}</h1>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div>
@@ -37,9 +37,10 @@
                     <tr>
                         <th>Задача</th>
                         <th>Состояние</th>
-                        <th colspan="2" class="text-center">Опции</th>
+                        <th colspan="3" class="text-center">Опции</th>
                     </tr>
                     <c:forEach items="${group}" var="task">
+
                         <tr>
                             <td>${task.nameTask}</td>
                             <td>
@@ -55,8 +56,8 @@
 
                             <td>
                                 <div>
-                                    <form action="${pageContext.servletContext.contextPath}/controller?command=perform_task" method="post">
-                                        <input hidden="hidden" name="task_id" id="task_id" value="${task.id}">
+                                    <form action="${pageContext.servletContext.contextPath}/controller?command=perform_task&id=${task.id}" method="post">
+<%--                                        <input hidden="hidden" name="task_id" id="task_id" value="${task.id}">--%>
                                         <input
                                                 <c:choose>
                                                     <c:when test="${task.status==true}">
@@ -69,8 +70,16 @@
                             </td>
                             <td>
                                 <div>
-                                    <form action="${pageContext.servletContext.contextPath}/controller?command=del_person" method="post">
-                                        <input hidden="hidden" name="id" value="${task.id}">
+                                    <form action="${pageContext.servletContext.contextPath}/controller?command=view_log&id=${task.id}" method="post">
+<%--                                        <input hidden="hidden" name="task_id" id="task_id" value="${task.id}">--%>
+                                        <input class="btn btn-primary btn-sm" type="submit" value="Посмотреть лог"/>
+                                    </form>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <form action="${pageContext.servletContext.contextPath}/controller?command=add_log&id=${task.id}" method="post">
+<%--                                        <input hidden="hidden" name="id" value="${task.id}">--%>
                                         <input  <c:choose>
                                             <c:when test="${task.status==true}">
                                                 disabled="disabled"

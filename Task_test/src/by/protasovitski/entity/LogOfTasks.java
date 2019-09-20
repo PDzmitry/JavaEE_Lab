@@ -51,4 +51,17 @@ public class LogOfTasks implements Serializable {
         this.description = description;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "LogOfTasks{" +
+                "id=" + id +
+                ", task=" + task +
+                ", timeSpent=" + timeSpent +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

@@ -40,11 +40,6 @@ public class UserRepositoryImpl implements UserRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-           /* if (em != null && em.isOpen()){
-                em.close();
-            }*/
-
         }
     }
 
@@ -60,10 +55,6 @@ public class UserRepositoryImpl implements UserRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-           /* if (em != null && em.isOpen()) {
-                em.close();
-            }*/
         }
     }
 
@@ -79,10 +70,6 @@ public class UserRepositoryImpl implements UserRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-            /*if (em != null && em.isOpen()) {
-                em.close();
-            }*/
         }
     }
 
@@ -98,10 +85,6 @@ public class UserRepositoryImpl implements UserRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-           /* if (em != null && em.isOpen()) {
-                em.close();
-            }*/
         }
     }
 
@@ -128,18 +111,12 @@ public class UserRepositoryImpl implements UserRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-           /* if (em != null && em.isOpen()) {
-                em.close();
-            }*/
         }
-
     }
 
     @Override
     public List<Map<User, Integer>> findAllWithCountTasks() throws RepositoryException {
         try {
-            em = JpaUtil.getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             List<Map<User, Integer>> users = em.createQuery(
                     "select new map (u as user ,(select count (*) from Task as t where t.user=u) as task_count) from User  as u"
@@ -150,17 +127,12 @@ public class UserRepositoryImpl implements UserRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-            /*if (em != null && em.isOpen()) {
-                em.close();
-            }*/
         }
     }
 
     @Override
     public List<User> findAllHaveTasksWithTotalTimeMore(Long totalTime) throws RepositoryException {
         try {
-            em = JpaUtil.getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             List<User> users = em.createQuery(
                     "select u from User u" +
@@ -178,10 +150,6 @@ public class UserRepositoryImpl implements UserRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-           /* if (em != null && em.isOpen()) {
-                em.close();
-            }*/
         }
     }
 }

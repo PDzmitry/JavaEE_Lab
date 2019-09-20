@@ -24,7 +24,6 @@ public class TaskRepositoryImpl implements TaskRepository {
     @Override
     public Task save(Task task) throws RepositoryException {
         try {
-//            em = JpaUtil.getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             if (task.getId() == null) {
                 em.persist(task);
@@ -38,16 +37,12 @@ public class TaskRepositoryImpl implements TaskRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-            if (em != null && em.isOpen())
-                em.close();
         }
     }
 
     @Override
     public void remove(Long id) throws RepositoryException {
         try {
-//            em = JpaUtil.getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             Task task = em.find(Task.class, id);
             em.remove(task);
@@ -57,17 +52,12 @@ public class TaskRepositoryImpl implements TaskRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        }finally {
-            if (em.isOpen()) {
-                em.close();
-            }
         }
     }
 
     @Override
     public List<Task> findAll() throws RepositoryException {
         try {
-//            em = JpaUtil.getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             List<Task> tasks = em.createQuery("select t from Task t").getResultList();
             em.getTransaction().commit();
@@ -77,17 +67,12 @@ public class TaskRepositoryImpl implements TaskRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        }finally {
-            if (em.isOpen()) {
-                em.close();
-            }
         }
     }
 
     @Override
     public Optional<Task> findById(Long id) throws RepositoryException {
         try {
-//            em = JpaUtil.getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             Task task = em.find(Task.class, id);
             em.getTransaction().commit();
@@ -97,17 +82,12 @@ public class TaskRepositoryImpl implements TaskRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        }finally {
-            if (em.isOpen()) {
-                em.close();
-            }
         }
     }
 
     @Override
     public List<Task> findAllByUserId(Long userId) throws RepositoryException {
         try {
-//            em = JpaUtil.getEntityManagerFactory().createEntityManager();
             em.getTransaction().begin();
             CriteriaBuilder builder = em.getCriteriaBuilder();
             CriteriaQuery<Task> criteriaQuery = builder.createQuery(Task.class);
@@ -124,10 +104,6 @@ public class TaskRepositoryImpl implements TaskRepository {
                 em.getTransaction().rollback();
             }
             throw new RepositoryException(e.getMessage());
-        } finally {
-            if (em.isOpen()) {
-                em.close();
-            }
         }
     }
 }

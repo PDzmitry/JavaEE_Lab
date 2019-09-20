@@ -5,7 +5,7 @@ import by.protasovitski.exception.RepositoryException;
 import by.protasovitski.repository.UserRepository;
 import by.protasovitski.service.UserService;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 
 @Named
-@RequestScoped
+@SessionScoped
 public class UserServiceImpl implements UserService {
 
 

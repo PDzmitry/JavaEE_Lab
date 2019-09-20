@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import java.io.Serializable;
 
 
-public class EntityManagerFactoryProducer implements Serializable{
+public class EntityManagerFactoryProducer{
 
 
 

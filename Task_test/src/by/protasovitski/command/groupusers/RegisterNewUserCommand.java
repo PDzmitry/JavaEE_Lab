@@ -12,6 +12,7 @@ import by.protasovitski.service.UserService;
 import by.protasovitski.util.HashPasswordImpl;
 import by.protasovitski.util.pages.Page;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -24,7 +25,7 @@ import static by.protasovitski.command.authorithation.AuthConstants.*;
 import static java.util.Optional.of;
 import static org.hibernate.internal.util.StringHelper.isEmpty;
 
-@SessionScoped
+@RequestScoped
 @Type(CommandType.REGISTER_NEW_USER)
 public class RegisterNewUserCommand implements Command {
 //    private static final Logger LOGGER = Logger.getLogger(RegisterNewUserCommand.class.getName());

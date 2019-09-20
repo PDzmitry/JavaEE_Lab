@@ -13,12 +13,11 @@ public enum CommandType {
     PERFORM_TASK("perform_task"),
 
     WELCOME("welcome"),
-    ADD_NEW_TASK("add_new_task");
-    /* ADD_NEW_PERSON("add_new_person"),
-   DEL_PERSON("del_person"),*/
+    ADD_NEW_TASK("add_new_task"),
 
+    ADD_NEW_LOG("add_log"),
+    VIEW_LOG("view_log");
 
-//    NEW_TASK_PAGE("new_task_page"),
 
 
     private String command;

@@ -3,8 +3,8 @@ package by.protasovitski.command.authorithation;
 
 import by.protasovitski.command.Command;
 import by.protasovitski.command.CommandResult;
-import by.protasovitski.command.factory.Type;
 import by.protasovitski.command.factory.CommandType;
+import by.protasovitski.command.factory.Type;
 import by.protasovitski.command.session.SessionAttribute;
 import by.protasovitski.entity.User;
 import by.protasovitski.exception.RepositoryException;
@@ -13,9 +13,8 @@ import by.protasovitski.service.UserService;
 import by.protasovitski.util.HashPasswordImpl;
 import by.protasovitski.util.pages.Page;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,12 +22,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
-
 import static by.protasovitski.command.authorithation.AuthConstants.*;
 import static java.util.Optional.of;
 import static org.hibernate.internal.util.StringHelper.isEmpty;
 
-@SessionScoped
+@RequestScoped
 @Type(CommandType.LOGIN)
 public class LoginCommand implements Command {
 //    private static final Logger LOGGER = Logger.getLogger(LoginCommand.class.getName());
@@ -39,9 +37,9 @@ public class LoginCommand implements Command {
     private HashPasswordImpl hashPassword;
 
 
-    private void setAttributesToSession(String user_id, HttpServletRequest request){
+    private void setAttributesToSession(User user, HttpServletRequest request){
         HttpSession session = request.getSession();
-        session.setAttribute(SessionAttribute.USER_ID,user_id);
+        session.setAttribute(SessionAttribute.USER,user);
     }
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, RepositoryException, ServletException, IOException {
@@ -71,7 +69,7 @@ public class LoginCommand implements Command {
         Optional<User> user = userService.login(login,password);
         boolean userExist = false;
         if (user.isPresent()){
-            setAttributesToSession(user.get().getId().toString(),request);
+            setAttributesToSession(user.get(),request);
             userExist=true;
         }
         return userExist;
