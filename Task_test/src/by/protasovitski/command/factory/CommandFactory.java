@@ -60,6 +60,14 @@ public class CommandFactory implements Serializable {
     @Type(CommandType.VIEW_LOG)
     private Command viewLogCommand;
 
+    @Inject
+    @Type(CommandType.ADD_NEW_LOG)
+    private Command addNewLogCommand;
+
+    @Inject
+    @Type(CommandType.ADD_LOG_PAGE)
+    private Command addLogPageCommand;
+
 
     public Command create(String command) {
         command = command.toUpperCase();
@@ -116,6 +124,14 @@ public class CommandFactory implements Serializable {
             }
             case VIEW_LOG:{
                 resultCommand = viewLogCommand;
+                break;
+            }
+            case ADD_NEW_LOG:{
+                resultCommand = addNewLogCommand;
+                break;
+            }
+            case ADD_LOG_PAGE:{
+                resultCommand= addLogPageCommand;
                 break;
             }
             default: {

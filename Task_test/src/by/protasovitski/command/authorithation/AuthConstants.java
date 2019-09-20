@@ -18,7 +18,7 @@ public class AuthConstants {
     public final static String COMMAND_WELCOME = "/controller?command=welcome";
 
 
-    public final static String USER_ID= "user_id";
+    public final static String USER_ID= "id";
     public final static String USER = "user";
     public final static String NAME_FOR_REGISTER = "newName";
     public final static String LOGIN_FOR_REGISTER = "newLogin";

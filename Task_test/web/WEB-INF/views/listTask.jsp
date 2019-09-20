@@ -57,7 +57,6 @@
                             <td>
                                 <div>
                                     <form action="${pageContext.servletContext.contextPath}/controller?command=perform_task&id=${task.id}" method="post">
-<%--                                        <input hidden="hidden" name="task_id" id="task_id" value="${task.id}">--%>
                                         <input
                                                 <c:choose>
                                                     <c:when test="${task.status==true}">
@@ -71,15 +70,13 @@
                             <td>
                                 <div>
                                     <form action="${pageContext.servletContext.contextPath}/controller?command=view_log&id=${task.id}" method="post">
-<%--                                        <input hidden="hidden" name="task_id" id="task_id" value="${task.id}">--%>
                                         <input class="btn btn-primary btn-sm" type="submit" value="Посмотреть лог"/>
                                     </form>
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <form action="${pageContext.servletContext.contextPath}/controller?command=add_log&id=${task.id}" method="post">
-<%--                                        <input hidden="hidden" name="id" value="${task.id}">--%>
+                                    <form action="${pageContext.servletContext.contextPath}/controller?command=add_log_page&id=${task.id}" method="post">
                                         <input  <c:choose>
                                             <c:when test="${task.status==true}">
                                                 disabled="disabled"

@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import static by.protasovitski.command.session.SessionAttribute.USER;
 import static by.protasovitski.command.session.SessionAttribute.USER_ID;
 import static by.protasovitski.command.groupusers.constant.GroupConstant.*;
 import static java.util.Optional.of;
@@ -38,9 +39,7 @@ public class AddNewTaskCommand implements Command {
     private UserService userService;
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException,  ServletException, IOException {
-//        taskService = new TaskServiceImpl(new TaskRepositoryImpl());
-//        userService = new UserServiceImpl(new UserRepositoryImpl());
-        Long userId = Long.parseLong((String) request.getSession().getAttribute(USER_ID));
+        Long userId = ((User) request.getSession().getAttribute(USER)).getId();
         Optional<String> newNameTask = of(request)
                 .map(httpServletRequest ->
                         httpServletRequest.getParameter(NEW_NAME_TASK));

@@ -15,7 +15,8 @@ public enum CommandType {
     WELCOME("welcome"),
     ADD_NEW_TASK("add_new_task"),
 
-    ADD_NEW_LOG("add_log"),
+    ADD_LOG_PAGE("add_log_page"),
+    ADD_NEW_LOG("add_new_log"),
     VIEW_LOG("view_log");
 
 

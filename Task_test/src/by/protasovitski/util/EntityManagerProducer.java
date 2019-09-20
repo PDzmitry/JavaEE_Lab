@@ -18,7 +18,7 @@ public class EntityManagerProducer{
     @RequestScoped
     public EntityManager create() {
         EntityManager em = emf.createEntityManager();
-        System.out.println("EntityManager created!");
+//        System.out.println("EntityManager created!");
         return em;
     }
     public void dispose(@Disposes EntityManager em) {

@@ -1,4 +1,4 @@
-package by.protasovitski.command.grouptasks;
+package by.protasovitski.command.grouplogoftasks;
 
 import by.protasovitski.command.Command;
 import by.protasovitski.command.CommandResult;

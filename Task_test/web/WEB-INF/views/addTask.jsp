@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <form class="form-add-task" action="${pageContext.servletContext.contextPath}/controller?command=add_new_task" method="post">
         <p>Новая задача</p>
-        <p id="error" style="color: red">${error}</p>
+        <p class="text-danger" id="error">${errorMessage}</p>
         <label for="nNameTask" class="sr-only">Название задачи:</label>
         <input size="100" type="text" class="form-text" id="nNameTask" placeholder="Введите название задачи" name="nNameTask" required autofocus>
         <input class="btn btn-primary" type="submit" value="Сохранить">

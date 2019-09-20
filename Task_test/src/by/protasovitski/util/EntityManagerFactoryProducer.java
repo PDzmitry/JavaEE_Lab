@@ -19,7 +19,7 @@ public class EntityManagerFactoryProducer{
         EntityManagerFactory emf;
         try {
             emf = Persistence.createEntityManagerFactory("tasksPU");
-            System.out.println("EntityManagerFactory created!");
+//            System.out.println("EntityManagerFactory created!");
         } catch (Exception e) {
             throw new ExceptionInInitializerError(e);
         }

@@ -17,7 +17,7 @@
     <form class="form-edit-user" action="${pageContext.servletContext.contextPath}/controller?command=edit_user" method="post">
         <input hidden="hidden" name="action" value="edit-user-success">
         <p> Редактировать пользователя:</p>
-        <p id="error" style="color: red">${error}</p>
+        <p class="text-danger" id="error">${errorMessage}</p>
             <input hidden="hidden" type="text" class="form-text" id="user_id"  name="user_id"
                    value="${user.id}">
         <label for="newName" class="sr-only">ФИО:</label>

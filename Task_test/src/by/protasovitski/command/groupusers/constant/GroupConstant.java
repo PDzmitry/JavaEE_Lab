@@ -9,4 +9,8 @@ public class GroupConstant {
     public final static String ERROR_MESSAGE_TEXT = "Заполните все поля";
     public final static String LISTGROUP ="group";
     public final static String TASK="task";
+
+    public final static String LOG_ID = "id";
+    public final static String LOG_DESCRIPTION = "logDescription";
+    public final static  String TIME_SPENT = "timeSpent";
 }

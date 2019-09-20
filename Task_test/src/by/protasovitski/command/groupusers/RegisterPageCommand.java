@@ -23,6 +23,6 @@ public class RegisterPageCommand implements Command {
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, RepositoryException, ServletException, IOException {
         System.out.println("REGISTER_PAGE");
-        return new CommandResult(Page.REGISTER_PAGE.getValue(),false);
+        return new CommandResult(Page.ADD_LOG_PAGE.getValue(),false);
     }
 }
