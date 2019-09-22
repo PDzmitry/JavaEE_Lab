@@ -21,14 +21,16 @@
                     <tr>
                         <th>Логин</th>
                         <th>ФИО</th>
-                        <th colspan="2" class="text-center">Опции</th>
+                        <th>Число задач</th>
                     </tr>
-                    <c:forEach items="${group}" var="user">
-                        <tr>
-                            <td>${user.login}</td>
-                            <td>${user.name}</td>
-                            <td>            </td>
-                        </tr>
+                    <c:forEach items="${group}" var="map">
+                        <c:forEach items="${map}" var="entry">
+                            <tr>
+                                <td>${entry.key.login}</td>
+                                <td>${entry.key.name}</td>
+                                <td>${entry.value}</td>
+                            </tr>
+                        </c:forEach>
                     </c:forEach>
                 </table>
             </div>

@@ -17,7 +17,9 @@ public enum CommandType {
 
     ADD_LOG_PAGE("add_log_page"),
     ADD_NEW_LOG("add_new_log"),
-    VIEW_LOG("view_log");
+    VIEW_LOG("view_log"),
+    LIST_USERS_WITH_TASK_COMPLETION("list_users_with_task_completion"),
+    NUMBER_OF_USER_TASKS("number_of_user_tasks");
 
 
 

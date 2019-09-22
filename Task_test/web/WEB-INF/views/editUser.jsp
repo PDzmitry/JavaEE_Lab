@@ -18,7 +18,7 @@
         <input hidden="hidden" name="action" value="edit-user-success">
         <p> Редактировать пользователя:</p>
         <p class="text-danger" id="error">${errorMessage}</p>
-            <input hidden="hidden" type="text" class="form-text" id="user_id"  name="user_id"
+            <input hidden="hidden" type="text" class="form-text" id="id"  name="id"
                    value="${user.id}">
         <label for="newName" class="sr-only">ФИО:</label>
         <input type="text" class="form-text" id="newName" placeholder="Введите имя" name="newName" value="${user.name}" required autofocus>

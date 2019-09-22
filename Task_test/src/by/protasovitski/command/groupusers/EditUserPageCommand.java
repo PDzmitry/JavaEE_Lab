@@ -32,7 +32,6 @@ public class EditUserPageCommand implements by.protasovitski.command.Command {
     private CommandResult forwardToListUsersWithError(HttpServletRequest request,
                                                       String ERROR, String ERROR_MESSAGE) {
         request.setAttribute(ERROR, ERROR_MESSAGE);
-//        UserService userService = new UserServiceImpl(new UserRepositoryImpl());
         List<User> users = userService.findAll();
         if (!users.isEmpty()){
             request.setAttribute(LISTGROUP,users);
@@ -47,7 +46,6 @@ public class EditUserPageCommand implements by.protasovitski.command.Command {
                 map(httpServletRequest ->
                         httpServletRequest.getParameter(USER_ID));
         if (id.isPresent()){
-//            UserService userService = new UserServiceImpl(new UserRepositoryImpl());
             Optional<User> user = userService.findById(Long.parseLong(id.get()));
             if (user.isPresent()){
                 request.setAttribute(USER,user.get());

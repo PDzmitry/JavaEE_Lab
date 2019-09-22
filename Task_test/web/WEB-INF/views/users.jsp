@@ -29,9 +29,8 @@
                             <td>${user.name}</td>
                             <td>
                                 <div>
-                                    <form action="${pageContext.servletContext.contextPath}/controller?command=edit_user_page"
+                                    <form action="${pageContext.servletContext.contextPath}/controller?command=edit_user_page&id=${user.id}"
                                           method="post">
-                                        <input hidden="hidden" name="user_id" value="${user.id}">
                                         <input class="btn btn-primary btn-sm" type="submit" value="Изменить">
                                     </form>
                                 </div>

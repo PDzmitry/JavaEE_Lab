@@ -9,31 +9,40 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar-main">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <form action="${pageContext.servletContext.contextPath}/controller?command=welcome" method="post">
-                        <input class="btn btn-link" type="submit" value="Home">
+                        <input class="btn btn-link" type="submit" value="Главная">
                     </form>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <form action="${pageContext.servletContext.contextPath}/controller?command=list_users" method="post">
-                    <input class="btn btn-link" type="submit" value="Список пользователей">
+                        <input class="btn btn-link" type="submit" value="Пользователи">
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <form action="${pageContext.servletContext.contextPath}/controller?command=number_of_user_tasks" method="post">
+                        <input class="btn btn-link" type="submit" value="Пользователи с количеством задач">
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <form action="${pageContext.servletContext.contextPath}/controller?command=list_users_with_task_completion&total=100" method="post">
+                    <input class="btn btn-link" type="submit" value="Пользователи время зачач > 100 ">
                 </form>
                 </li>
-<%--                <li class="nav-item"><a href="#">Справочник задач</a></li>--%>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
                     <form action="${pageContext.servletContext.contextPath}/controller?command=login_page" method="post">
                         <input hidden="hidden" name="action" value="login">
-                        <input class="btn btn-link" type="submit" value="Login">
+                        <input class="btn btn-link" type="submit" value="Вход">
                     </form>
                 </li>
                 <li class="nav-item ">
                     <form action="${pageContext.servletContext.contextPath}/controller?command=sign_out" method="post">
                         <input hidden="hidden" name="action" value="logout">
-                        <input class="btn btn-link" type="submit" value="Logout">
+                        <input class="btn btn-link" type="submit" value="Выход">
                     </form>
                 </li>
             </ul>

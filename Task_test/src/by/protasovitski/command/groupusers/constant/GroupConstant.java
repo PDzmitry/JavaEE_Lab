@@ -13,4 +13,5 @@ public class GroupConstant {
     public final static String LOG_ID = "id";
     public final static String LOG_DESCRIPTION = "logDescription";
     public final static  String TIME_SPENT = "timeSpent";
+    public final static  String TOTAL = "total";
 }

@@ -4,6 +4,7 @@ import by.protasovitski.entity.LogOfTasks;
 import by.protasovitski.repository.LogOfTaskRepository;
 import by.protasovitski.service.LogOfTaskService;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 
 @Named
-@SessionScoped
+@RequestScoped
 public class LogOfTaskServiceImpl implements LogOfTaskService {
 
     @Inject

@@ -10,19 +10,23 @@ import org.jboss.weld.junit5.WeldSetup;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.inject.Inject;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.spi.Bean;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
 @EnableWeld
 public class UserServiceTest {
 
-//    @WeldSetup
-//    public WeldInitiator weld =WeldInitiator.from(UserService.class).;
-    private   UserService userService;
+   /* @WeldSetup
+    public WeldInitiator.Builder weld = WeldInitiator.from(UserService.class);
+*/
+    private UserService userService;
 
 
     private HashPasswordImpl hashPassword;
+
 
 
 
@@ -82,8 +86,9 @@ public class UserServiceTest {
             }
         }
     }
+
     @Test
-    public void testFindAllHaveTasksWithTotalTimeMore(){
+    public void testFindAllHaveTasksWithTotalTimeMore() {
         Long totalTime = 100L;
         List<User> users = userService.findAllHaveTasksWithTotalTimeMore(totalTime);
         if (!users.isEmpty()) {

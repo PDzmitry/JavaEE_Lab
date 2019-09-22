@@ -18,7 +18,7 @@
             <div class="col-lg-12">
                 <table class="table table-striped">
                     <caption style="caption-side: top" class="text-uppercase" size="14">Список пользователей
-                        у которых есть задачи с суммарным временем выполнения больше 100 часов</caption>
+                       время выполнения зачачи больше 100 часов</caption>
                     <tr>
                         <th>Логин</th>
                         <th>ФИО</th>

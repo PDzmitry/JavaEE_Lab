@@ -4,6 +4,7 @@ import by.protasovitski.entity.Task;
 import by.protasovitski.repository.TaskRepository;
 import by.protasovitski.service.TaskService;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Named
-@SessionScoped
+@RequestScoped
 public class TaskServiceImpl implements TaskService {
     @Inject
     private TaskRepository taskRepository;

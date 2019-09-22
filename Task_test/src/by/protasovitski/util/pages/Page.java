@@ -9,7 +9,9 @@ public enum Page {
     LIST_USERS_PAGE("/WEB-INF/views/users.jsp"),
     EDIT_USER_PAGE("/WEB-INF/views/editUser.jsp"),
     VIEW_LOG_PAGE("/WEB-INF/views/viewlog.jsp"),
-    ADD_LOG_PAGE("/WEB-INF/views/addLog.jsp");
+    ADD_LOG_PAGE("/WEB-INF/views/addLog.jsp"),
+    LIST_USERS_WITH_TASK_COMPLETION("/WEB-INF/views/usersWithTaskCompletion.jsp"),
+    NUMBER_OF_USER_TASKS("/WEB-INF/views/numberOfUserTasks.jsp");
 
 
     private final String value;

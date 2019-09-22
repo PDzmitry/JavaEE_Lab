@@ -42,12 +42,11 @@ public class PerformTaskCommand implements by.protasovitski.command.Command {
                 map(httpServletRequest ->
                         httpServletRequest.getParameter(TASK_ID));
         if (id.isPresent()){
-//            TaskService taskService = new TaskServiceImpl(new TaskRepositoryImpl());
             Optional<Task> task = taskService.findById(Long.parseLong(id.get()));
             if (task.isPresent()){
                 task.get().setStatus(true);
                 if(taskService.save(task.get()).isPresent()){
-                   return new CommandResult(UrlConstant.COMMAND_WELCOME, true);
+                   return new CommandResult(UrlConstant.COMMAND_WELCOME, false);
 
                 }else{
                     return  forwardToWelcomeWithError(request, REGISTER_ERROR, REGISTER_ERROR_MESSAGE_IF_EXIST);
