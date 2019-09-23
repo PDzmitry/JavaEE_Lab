@@ -13,6 +13,6 @@ public interface UserService extends Serializable {
     List<User> findAll();
     Optional<User> findById(Long id);
     Optional<User> login(String login,byte[] password);
-    List<Map<User,Integer>> findAllWithCountTasks();
+    Map<User,Long> findAllWithCountTasks();
     List<User> findAllHaveTasksWithTotalTimeMore(Long totalTime);
 }

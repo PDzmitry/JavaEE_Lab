@@ -32,15 +32,10 @@ public class NumberOfUserTasksCommand implements Command {
     private UserService userService;
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws ServiceException, RepositoryException, ServletException, IOException {
-        Optional<String> total = of(request).
-                map(httpServletRequest ->
-                        httpServletRequest.getParameter(TOTAL));
-        if (total.isPresent()){
-            List<Map<User,Integer>> users = userService.findAllWithCountTasks();
+        Map<User,Long>users = userService.findAllWithCountTasks();
             if (!users.isEmpty()){
                 request.setAttribute(LISTGROUP,users);
             }
-        }
 
         return new CommandResult(Page.NUMBER_OF_USER_TASKS.getValue(),false);
     }

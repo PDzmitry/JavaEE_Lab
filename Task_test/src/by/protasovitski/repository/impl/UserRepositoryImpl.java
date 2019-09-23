@@ -3,16 +3,13 @@ package by.protasovitski.repository.impl;
 import by.protasovitski.entity.User;
 import by.protasovitski.exception.RepositoryException;
 import by.protasovitski.repository.UserRepository;
-import by.protasovitski.util.JpaUtil;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.*;
-import javax.transaction.Transactional;
-import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -115,13 +112,17 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public List<Map<User, Integer>> findAllWithCountTasks() throws RepositoryException {
+    public Map<User, Long> findAllWithCountTasks() throws RepositoryException {
         try {
             em.getTransaction().begin();
-            List<Map<User, Integer>> users = em.createQuery(
-                    "select new map (u as user ,(select count (*) from Task as t where t.user=u) as task_count) from User  as u"
+            Map<User,Long> map = new HashMap<>();
+            List<Object[]> list = em.createQuery(
+                    "select u as user ,(select count (*) from Task as t where t.user=u) as task_count from User  as u"
             ).getResultList();
-            return users;
+            for (Object[] result: list){
+                map.put((User) result[0],(Long) result[1]);
+            }
+            return map;
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();

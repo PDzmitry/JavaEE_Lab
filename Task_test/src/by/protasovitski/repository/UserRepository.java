@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface UserRepository extends Repository<User,Long> {
     Optional<User> findByLoginAndPassword(String login,byte[] password) throws RepositoryException;
-    List<Map<User,Integer>> findAllWithCountTasks() throws RepositoryException;
+    Map<User,Long> findAllWithCountTasks() throws RepositoryException;
     List<User> findAllHaveTasksWithTotalTimeMore(Long totalTime) throws RepositoryException;
 }

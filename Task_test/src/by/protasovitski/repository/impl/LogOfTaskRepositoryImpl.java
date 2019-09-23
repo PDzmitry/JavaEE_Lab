@@ -1,10 +1,8 @@
 package by.protasovitski.repository.impl;
 
 import by.protasovitski.entity.LogOfTasks;
-import by.protasovitski.entity.Task;
 import by.protasovitski.exception.RepositoryException;
 import by.protasovitski.repository.LogOfTaskRepository;
-import by.protasovitski.util.JpaUtil;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

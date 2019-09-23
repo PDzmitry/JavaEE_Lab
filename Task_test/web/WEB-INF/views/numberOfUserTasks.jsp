@@ -23,14 +23,12 @@
                         <th>ФИО</th>
                         <th>Число задач</th>
                     </tr>
-                    <c:forEach items="${group}" var="map">
-                        <c:forEach items="${map}" var="entry">
-                            <tr>
-                                <td>${entry.key.login}</td>
-                                <td>${entry.key.name}</td>
-                                <td>${entry.value}</td>
-                            </tr>
-                        </c:forEach>
+                    <c:forEach items="${group}" var="entry">
+                        <tr>
+                            <td>${entry.key.login}</td>
+                            <td>${entry.key.name}</td>
+                            <td>${entry.value}</td>
+                        </tr>
                     </c:forEach>
                 </table>
             </div>
@@ -40,8 +38,8 @@
 </section>
 <jsp:include page="footer.jsp"/>
 
-<script src="webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="webjars/jquery/3.4.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="webjars/popper.js/1.15.0/dist/popper.min.js"></script>
 </body>
 </html>

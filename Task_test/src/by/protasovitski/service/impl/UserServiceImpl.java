@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Map<User,Integer>> findAllWithCountTasks() {
+    public Map<User,Long> findAllWithCountTasks() {
         try{
             return userRepository.findAllWithCountTasks();
         }catch (Exception e){
